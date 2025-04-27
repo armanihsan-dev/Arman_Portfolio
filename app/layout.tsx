@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import StarsCanvas from "@/components/main/StarBackground";
-import Navbar from "@/components/main/Navbar";
-import Footer from "@/components/main/Footer";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import StarsCanvas from '@/components/main/StarBackground';
+import Navbar from '@/components/main/Navbar';
+import Footer from '@/components/main/Footer';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Space Portfolio",
-  description: "This is my portfolio",
+  title: 'Arman Ihsan Official',
+  description: 'This is my latest portfolio',
 };
 
 export default function RootLayout({
@@ -19,8 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* 👇 Add this inside <head> */}
+        <link rel="icon" href="/name-logo-black.svg" sizes="any" />
+      </head>
       <body
-        className={`${inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
+        className={`${inter.className} bg-[#030014] overflow-y-scroll h-fit overflow-x-hidden`}
       >
         <StarsCanvas />
         <Navbar />
