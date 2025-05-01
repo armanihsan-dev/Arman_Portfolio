@@ -1,5 +1,5 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
 
 interface Props {
   src: string;
@@ -18,9 +18,11 @@ const ProjectCard = ({ src, title, description }: Props) => {
         className="w-full object-contain"
       />
 
-      <div className="relative p-4">
-        <h1 className="text-2xl font-semibold text-white">{title}</h1>
-        <p className="mt-2 text-gray-300">{description}</p>
+      <div className="relative p-4 ">
+        <h1 className="text-2xl font-semibold text-white font-nunito">
+          {title}
+        </h1>
+        <p className="mt-2 text-gray-300 font-roboto">{description}</p>
       </div>
     </div>
   );

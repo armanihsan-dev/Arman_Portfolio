@@ -1,5 +1,5 @@
 'use client';
-import { useScroll, useTransform } from 'motion/react';
+import { useScroll, useTransform } from 'framer-motion';
 import React from 'react';
 import { GoogleGeminiEffect } from '../ui/google-gemini-effect';
 
@@ -18,7 +18,7 @@ export function GoogleGeminiEffectDemo() {
 
   return (
     <div
-      className="h-[400vh] bg-[#030014] w-full dark:border dark:border-white/[0.1] rounded-md relative bottom-[20rem] pt-40 overflow-clip"
+      className="h-[400vh] bg-[#030014] z-[-3] w-full dark:border dark:border-white/[0.1] rounded-md relative bottom-[20rem] pt-40 overflow-clip"
       ref={ref}
     >
       <GoogleGeminiEffect

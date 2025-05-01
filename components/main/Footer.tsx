@@ -6,7 +6,8 @@ import { Socials } from '@/constants';
 import { FaXTwitter } from 'react-icons/fa6';
 import { IoLogoInstagram } from 'react-icons/io5';
 import { IoLogoGithub } from 'react-icons/io5';
-import { li } from 'motion/react-client';
+import { ShimmerButtonDemo } from './ShimmerButtonDemo';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const socialLinks = [
@@ -19,21 +20,38 @@ const Footer = () => {
     { icon: <IoLogoGithub />, url: 'https://github.com/armanihsan-dev' },
   ];
   return (
-    <div className="w-full h-full z-50  relative bottom-12 bg-transparent text-gray-200 shadow-lg p-[15px]">
-      <div className="text-sm  flex flex-col items-center justify-center gap-5">
-        <p>
-          Arman Ihsan © <span>{currentYear}</span>. All rights reserved
+    <div
+      id="footer"
+      className="text-sm relative bottom-[140rem] lg:bottom-8  flex flex-col text-white/80 items-center justify-center gap-5 py-6"
+    >
+      <div className="top-text text-center ">
+        <h1 className="colorful-text">
+          Ready to take your digital presence to the next level ?
+        </h1>
+        <p className="text-[12px] lg:text-lg">
+          Reach out me today and let's discuss how i can help you achieve you
+          goals.
         </p>
-        <div>
+      </div>
+
+      <ShimmerButtonDemo title={"let's get connected"} />
+
+      <div className=" flex flex-col lg:flex-row w-full items-center  justify-between gap-6 px-20">
+        <div className="flex items-center justify-between ">
+          {' '}
           <Image
             src="/name-logo.svg"
             alt="Name Logo"
             width={112}
             height={56}
-            className="w-28 h-14"
+            className="w-28 h-14 "
           />
+          <p className="text-[8px] lg:text-[14px] w-full text-justify">
+            Arman Ihsan © <span>{currentYear}</span>. All rights reserved
+          </p>
         </div>
-        <div className=" flex items-center justify-center gap-4 ">
+        <div className="flex gap-4 lg:pr-7">
+          {' '}
           {socialLinks.map((social, index) => {
             return (
               <li key={index} className="list-none">

@@ -1,31 +1,28 @@
 import React from 'react';
 import ProjectCard from '../sub/ProjectCard';
+import { ThreeDCardDemo } from './ThreeDCardDemo';
 
 const Projects = () => {
   return (
     <div
-      className="flex relative  bottom-[10rem] flex-col items-center justify-center py-20"
+      className="flex relative   bottom-[150rem] lg:bottom-[10rem] flex-col items-center justify-center py-20"
       id="projects"
     >
-      w
-      <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20">
-        My Projects
+      <h1 className="text-[40px]  font-poppins text-white project-title-text">
+        A small selection of recent projects
       </h1>
-      <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10">
-        <ProjectCard
-          src="/NextWebsite.png"
-          title="Modern Next.js Portfolio"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      <div className="h-full w-full flex relative justify-between  bottom-14 flex-col md:flex-row gap-10 px-10">
+        <ThreeDCardDemo
+          projectName="Expense Tracker"
+          description="text-[40px] font-poppins font-semibold text-transparent"
         />
-        <ProjectCard
-          src="/CardImage.png"
-          title="Interactive Website Cards"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        <ThreeDCardDemo
+          projectName="Expense Tracker"
+          description="text-[40px] font-poppins font-semibold text-transparent"
         />
-        <ProjectCard
-          src="/SpaceWebsite.png"
-          title="Space Themed Website"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        <ThreeDCardDemo
+          projectName="Expense Tracker"
+          description="text-[40px] font-poppins font-semibold text-transparent"
         />
       </div>
     </div>

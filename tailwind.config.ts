@@ -9,8 +9,37 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        shimmerSlide: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        spinAround: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        'marquee-vertical': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-100%)' },
+        },
+      },
       animation: {
-        'spin-slow': 'spin 3s linear infinite', // Adjust duration as needed
+        'shimmer-slide': 'shimmerSlide 3s linear infinite',
+        'spin-around': 'spinAround 3s linear infinite',
+        marquee: 'marquee var(--duration, 40s) linear infinite ',
+        'marquee-vertical':
+          'marquee-vertical var(--duration, 40s) linear infinite',
+        'spin-slow': 'spin 3s linear infinite',
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        nunito: ['Nunito', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

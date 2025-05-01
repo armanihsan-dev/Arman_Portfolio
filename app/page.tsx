@@ -2,21 +2,19 @@ import Encryption from '@/components/main/Encryption';
 import Hero from '@/components/main/Hero';
 import Projects from '@/components/main/Projects';
 import Skills from '@/components/main/Skills';
-import Image from 'next/image';
-import { ThreeDMarqueeDemo } from '@/components/main/ThreeDMarqueeDemo';
 import { GoogleGeminiEffectDemo } from '@/components/main/GoogleGeminiEffectDemo';
+import Testimonials from '@/components/main/Testimonials';
 
 export default function Home() {
   return (
-    <main className="h-fit w-full">
+    <main className="min-h-screen lg:h-full w-full overflow-hidden ">
       <div className="flex flex-col gap-50">
         <Hero />
         <Skills />
-        {/* <TextHoverEffectDemo /> */}
-        {/* <ThreeDMarqueeDemo /> */}
         <GoogleGeminiEffectDemo />
         <Encryption />
         <Projects />
+        <Testimonials />
       </div>
     </main>
   );

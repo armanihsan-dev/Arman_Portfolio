@@ -2,9 +2,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 .cursive {
   font-family: 'Cedarville Cursive', cursive;
+}
+
+.colorful-text {
+  @apply text-[20px] lg:text-[40px]  font-poppins bg-gradient-to-r from-purple-500 to-cyan-500 py-10 bg-clip-text text-transparent;
+}
+.project-title-text {
+  @apply text-[20px] lg:text-[40px]  font-poppins bg-gradient-to-r from-cyan-500 via-pink-500 to-purple-500 py-10 bg-clip-text text-transparent;
+}
+grid-background {
+  z-index: 3;
+  background-color: #0b0b0b;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234d5f99' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .Welcome-text {
   background: linear-gradient(
@@ -124,7 +136,28 @@ html {
     --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite
       alternate;
     --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   }
+}
+.mask-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+}
+.hover-group {
+  @apply group-hover:scale-125 transition-transform group-hover:translate-x-2 duration-300;
 }
 
 @layer base {
@@ -156,6 +189,22 @@ html {
     }
     100% {
       transform: translateZ(0) rotate(360deg);
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
 }

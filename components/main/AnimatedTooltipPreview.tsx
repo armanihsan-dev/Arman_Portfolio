@@ -5,32 +5,32 @@ const people = [
   {
     id: 1,
     name: 'Mongo-DB',
-    designation: 'Database',
+    designation: '',
     image: '/mongodb.png',
   },
   {
     id: 2,
     name: 'Express.Js',
-    designation: 'Node.js Framework',
+    designation: '',
     image: '/express.png',
   },
   {
     id: 3,
     name: 'React.js',
-    designation: 'Js Front-End Library',
-    image: '/react.png',
+    designation: '',
+    image: '/react-js-logo.png',
   },
   {
     id: 4,
     name: 'Node.js',
-    designation: 'Js Runtime environment',
+    designation: '',
     image: '/node-js.png',
   },
 ];
 
 export function AnimatedTooltipPreview() {
   return (
-    <div className="flex flex-row items-center justify-start mb-10 w-full">
+    <div className="flex flex-row items-center  justify-start mt-3 w-full">
       <AnimatedTooltip items={people} />
     </div>
   );

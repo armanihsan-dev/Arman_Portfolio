@@ -22,12 +22,12 @@ export const GoogleGeminiEffect = ({
   return (
     <div className={cn('sticky top-80 ', className)}>
       <div>
-        <p className="text-lg md:text-5xl font-normal font-mono pb-4  text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
+        <p className="text-lg md:text-5xl font-normal font-poppins pb-4  text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
           {title ||
             `I prioritize client collaboration, fostering open communication`}
         </p>
         <div className="w-full h-[1400px] -top-60 md:-top-40  flex items-center justify-center bg-red-transparent absolute ">
-          <button className="font-bold bg-white rounded-full relative bottom-[18.5rem] md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto ">
+          <button className="font-bold bg-white rounded-full font-poppins relative bottom-[18.5rem] md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto ">
             Arman Ihsan
           </button>
         </div>
