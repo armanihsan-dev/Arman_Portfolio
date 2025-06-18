@@ -4,56 +4,120 @@ import React from 'react';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
 import { FaLocationArrow } from 'react-icons/fa6';
 import { AnimatedTooltipPreview } from './AnimatedTooltipPreview';
+import { cn } from '@/lib/utils';
 
 interface ThreeDCardDemoProps {
   projectName: string;
   description: string;
+  imageSrc: string;
+  people: any;
+  projectUrl: string;
 }
 
 export function ThreeDCardDemo({
   projectName,
   description,
+  imageSrc,
+  people,
+  projectUrl,
 }: ThreeDCardDemoProps) {
   return (
-    <CardContainer className="inter-var p-[2px] group  rounded-xl bg-gradient-to-tr from-indigo-950 via-indigo-900 to-white ">
-      <CardBody className="bg-blue-950 z-[3]  relative group/card  cursor-pointer dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black d w-fit h-fit rounded-xl p-6   ">
+    <CardContainer
+      className={cn(
+        'inter-var group perspective-[1000px] w-[23rem] font-nunito'
+      )}
+    >
+      <CardBody className="relative group/card bg-gradient-to-br group from-slate-950 via-slate-900 to-indigo-950 w-full h-full rounded-2xl p-8 border border-slate-700/30 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 overflow-hidden backdrop-blur-sm">
+        {/* Animated background gradient */}
+        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-purple-500/10 via-blue-500/5 to-emerald-500/10" />
+
+        {/* Shimmer effect */}
+        <div
+          className="absolute inset-0 rounded-2xl opacity-0 group-hover/card:opacity-100 transition-all duration-1000 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/card:translate-x-full"
+          style={{ animation: 'shimmer 2s ease-in-out infinite' }}
+        />
+
+        {/* Floating particles */}
+        <div className="absolute inset-0 overflow-hidden rounded-2xl">
+          <div className="absolute top-6 left-6 w-2 h-2 bg-purple-400/40 rounded-full animate-pulse" />
+          <div className="absolute top-16 right-8 w-1 h-1 bg-emerald-400/50 rounded-full animate-ping" />
+          <div className="absolute bottom-20 left-12 w-1.5 h-1.5 bg-blue-400/40 rounded-full animate-bounce" />
+          <div className="absolute bottom-32 right-16 w-1 h-1 bg-purple-300/30 rounded-full animate-pulse delay-1000" />
+        </div>
+
+        {/* Enhanced title with better gradient */}
         <CardItem
-          translateZ="50"
-          className="text-xl font-nunito font-bold  text-white"
+          translateZ="60"
+          className="text-3xl font-bold bg-gradient-to-r from-white via-gray-100 to-purple-200 bg-clip-text text-transparent  tracking-tight leading-tight"
         >
           {projectName}
         </CardItem>
+
+        {/* Enhanced description with improved typography */}
         <CardItem
           as="p"
-          translateZ="60"
-          className=" text-sm text-green-300 max-w-sm mt-2 font-poppins"
+          translateZ="70"
+          className="text-base text-slate-300/90 max-w-sm mt-4  leading-relaxed tracking-wide"
         >
           {description}
         </CardItem>
-        <CardItem translateZ="100" className="w-full mt-4">
-          <img
-            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            height="1000"
-            width="1000"
-            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-            alt="thumbnail"
-          />
-        </CardItem>
-        <div className="flex justify-between items-center mt-10">
-          <CardItem
-            translateZ={20}
-            as="button"
-            className="group px-4 py-2 flex w-full items-center gap-2 justify-between  rounded-xl text-white text-xl font-bold"
-          >
-            <div className="w-fit h-fit flex items-center justify-between  relative right-4 ">
-              <AnimatedTooltipPreview />
+
+        {/* Enhanced image with advanced effects */}
+        <CardItem
+          translateZ="120"
+          className="w-full mt-6 overflow-hidden rounded-xl border border-slate-600/20 shadow-xl shadow-black/30"
+        >
+          <div className="relative h-48 w-full overflow-hidden group/image">
+            <img
+              src={imageSrc}
+              className="h-full w-full object-cover transition-all duration-700 group-hover/card:scale-110 group-hover/image:brightness-110 filter group-hover/card:saturate-110"
+              alt="project thumbnail"
+            />
+            {/* Multi-layer overlays */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-emerald-500/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-indigo-500/5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+
+            {/* Hover indicator with pulsing effect */}
+            <div className="absolute top-4 right-4 opacity-0 group-hover/card:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/card:translate-y-0">
+              <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse shadow-lg shadow-purple-400/50" />
             </div>
-            <div className="flex items-center justify-center gap-1 mt-[6px]">
-              <span className="text-sm font-nunito ">Check Live Site</span>
-              <FaLocationArrow className="hover-group text-green-400" />
+
+            {/* Corner accent lines */}
+            <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-emerald-400/30 opacity-0 group-hover/card:opacity-100 transition-all duration-500 delay-200" />
+            <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-purple-400/30 opacity-0 group-hover/card:opacity-100 transition-all duration-500 delay-300" />
+          </div>
+        </CardItem>
+
+        {/* Enhanced action section with better layout */}
+        <div className="flex justify-between items-center mt-8 ">
+          <CardItem translateZ={50} as="div" className="w-full">
+            <div className="flex items-center justify-between">
+              {/* Team avatars with improved styling */}
+
+              <div className="w-fit h-fit flex items-center justify-between relative">
+                <AnimatedTooltipPreview people={people} />
+              </div>
+
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-sm font-nunito text-white">
+                  Check Live Site
+                </span>
+                <a href={projectUrl}>
+                  <FaLocationArrow className="text-emerald-300 group-hover:text-2xl group-hover:text-green-400 transition-all" />
+                </a>
+              </div>
             </div>
           </CardItem>
         </div>
+
+        {/* Enhanced corner accents with animated gradients */}
+        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-purple-500/15 via-purple-400/5 to-transparent rounded-2xl opacity-60 group-hover/card:opacity-100 transition-opacity duration-500" />
+        <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-emerald-500/15 via-emerald-400/5 to-transparent rounded-2xl opacity-60 group-hover/card:opacity-100 transition-opacity duration-700" />
+
+        {/* Additional corner details */}
+        <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400/40 rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 delay-200" />
+        <div className="absolute bottom-4 left-4 w-2 h-2 bg-emerald-400/40 rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 delay-300" />
       </CardBody>
     </CardContainer>
   );

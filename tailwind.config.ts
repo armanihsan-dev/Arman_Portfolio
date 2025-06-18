@@ -36,6 +36,7 @@ const config: Config = {
         'spin-slow': 'spin 3s linear infinite',
       },
       fontFamily: {
+        manrope: ['Manrope', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
         nunito: ['Nunito', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],

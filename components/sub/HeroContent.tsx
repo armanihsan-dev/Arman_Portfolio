@@ -26,35 +26,35 @@ const HeroContent = () => {
           className="flex items-center justify-start "
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[13px]">Aspiring MERN-Stack</h1>
+          <h1 className="Welcome-text text-[13px]">Arman Ihsan khan</h1>
         </motion.div>
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 font-poppins  relative  text-justify lg:text-6xl font-bold text-white max-w-[600px] w-full h-auto"
+          className="flex flex-col gap-6 font-poppins  relative  text-justify lg:text-4xl font-bold text-white max-w-[600px] w-full h-auto"
         >
           <span>
-            Providing
+            Focused on
             <span className=" text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               {' '}
-              the best{' '}
+              building projects
             </span>
-            project exprience
+            <span className="ml-2">that stand out and perform</span>
           </span>
         </motion.div>
 
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className=" text-[12px] text-justify lg:text-[14px] text-gray-400 my-5 max-w-[600px] font-poppins"
+          className=" text-[12px] text-justify lg:text-[14px] text-gray-400 my-5 max-w-[600px] font-nunito"
         >
-          I&apos;m React developer and aspiring full stack MERN developer,
+          Hi , I&apos;m React developer and aspiring full stack MERN developer,
           focused on building responsive and dynamic web apps.
         </motion.p>
         {/* <motion.a
           variants={slideInFromLeft(1)}
           className="py-2 button-primary text-center text-white cursor-spointer rounded-lg max-w-[200px]"
         > */}
-        <a href="#footer">
+        <a href="#contact-form">
           <div className="relative p-1 rounded-full  ">
             <ShimmerButton
               className="relative z-10 rounded-full bg-black animate-spin-slow shimmer-border "

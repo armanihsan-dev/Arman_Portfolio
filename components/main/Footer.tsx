@@ -1,12 +1,10 @@
-import Link from 'next/link';
 import React from 'react';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import Image from 'next/image';
-import { Socials } from '@/constants';
+
 import { FaXTwitter } from 'react-icons/fa6';
 import { IoLogoInstagram } from 'react-icons/io5';
 import { IoLogoGithub } from 'react-icons/io5';
-import { ShimmerButtonDemo } from './ShimmerButtonDemo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,28 +13,24 @@ const Footer = () => {
       icon: <FaLinkedinIn />,
       url: 'https://www.linkedin.com/in/arman-ihsan-procodrr-5a790430a/',
     },
-    { icon: <FaXTwitter />, url: 'Profile Not found   ' },
     { icon: <IoLogoInstagram />, url: 'https://www.instagram.com/armanihan5/' },
     { icon: <IoLogoGithub />, url: 'https://github.com/armanihsan-dev' },
   ];
   return (
     <div
       id="footer"
-      className="text-sm relative bottom-[140rem] lg:bottom-8  flex flex-col text-white/80 items-center justify-center gap-5 py-6"
+      className="text-sm relative  lg:bottom-8 font-['Nunito'] flex flex-col text-white/80 items-center justify-center gap-5 py-6"
     >
       <div className="top-text text-center ">
         <h1 className="colorful-text">
           Ready to take your digital presence to the next level ?
         </h1>
-        <p className="text-[12px] lg:text-lg">
+        <p className="text-[12px] lg:text-lg ">
           Reach out me today and let's discuss how i can help you achieve you
           goals.
         </p>
       </div>
-
-      <ShimmerButtonDemo title={"let's get connected"} />
-
-      <div className=" flex flex-col lg:flex-row w-full items-center  justify-between gap-6 px-20">
+      <div className=" flex flex-col lg:flex-row w-full items-center   justify-between gap-6 px-[4rem]">
         <div className="flex items-center justify-between ">
           {' '}
           <Image

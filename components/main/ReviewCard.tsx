@@ -1,5 +1,7 @@
 import { cn } from '@/lib/utils';
 import { Marquee } from '../magicui/marquee';
+import { StarIcon } from '@heroicons/react/24/solid';
+import { FaXTwitter } from 'react-icons/fa6';
 const reviewsGroup1 = [
   {
     name: 'Ali Raza',
@@ -93,50 +95,84 @@ const ReviewCard = ({
   body: string;
 }) => {
   return (
-    <>
-      <figure
+    <figure className="relative h-56   w-96 group cursor-pointer">
+      {/* Glowing border that affects all cards in row on hover */}
+      <div className="absolute inset-0 " />
+
+      {/* Main card */}
+      <div
         className={cn(
-          'relative h-52 w-96 cursor-pointer overflow-hidden rounded-md p-4 flex flex-col gap-4',
-          // light styles
-          ' bg-blue-950 border border-blue-200 h text-white/70 hover:text-indigo-200 transition'
+          'relative h-full w-full rounded-2xl p-6 flex flex-col gap-4',
+          'bg-gray-900 border border-gray-700 ',
+          'transition-all duration-300 hover:shadow-sm hover:shadow-gray-500',
+          'overflow-hidden'
         )}
       >
-        <div className="flex flex-row items-center gap-2">
-          <img
-            className="rounded-full"
-            width="32"
-            height="32"
-            alt=""
-            src={img}
-          />
-          <div className="flex flex-col items-start juss">
-            <figcaption className="text-sm font-medium text-white">
+        {/* Profile section */}
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <img
+              className="rounded-full w-10 h-10 object-cover border-2 border-blue-400 group-hover:border-cyan-300 transition-all"
+              src={img}
+              alt={name}
+            />
+            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-900" />
+          </div>
+
+          <div>
+            <h3 className="text-white font-manrope hover:text-cyan-200 transition-colors">
               {name}
-            </figcaption>
-            <p className="text-xs font-medium text-white/40">{username}</p>
+            </h3>
+            <p className="text-xs text-gray-400 hover:text-blue-300 transition-colors">
+              @{username}
+            </p>
+          </div>
+
+          <div className="ml-auto flex space-x-1">
+            {[...Array(5)].map((_, i) => (
+              <StarIcon
+                key={i}
+                className="w-4 h-4 text-yellow-400 fill-current"
+              />
+            ))}
           </div>
         </div>
-        <blockquote className="mt-2 text-sm text-justify">{body}</blockquote>
-      </figure>
-    </>
+
+        {/* Review text */}
+        <blockquote className="flex-1">
+          <p className="text-gray-300 hover:text-white font-manrope text-justify text-sm tracking-wider">
+            {body}
+          </p>
+        </blockquote>
+      </div>
+    </figure>
   );
 };
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-      <Marquee pauseOnHover className="[--duration:20s] ">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4  "></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4"></div>
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden gap-8 py-8">
+      {/* First row with shared hover effect */}
+      <div className="w-full hover:[&_figure]:[--glow-opacity:0.3] transition-all duration-500">
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {firstRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+      </div>
+
+      {/* Second row with shared hover effect */}
+      <div className="w-full hover:[&_figure]:[--glow-opacity:0.3] transition-all duration-500">
+        <Marquee reverse pauseOnHover className="[--duration:20s]">
+          {secondRow.map((review) => (
+            <ReviewCard key={review.username} {...review} />
+          ))}
+        </Marquee>
+      </div>
+
+      {/* Gradient fade edges */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-gray-950 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-gray-950 to-transparent" />
     </div>
   );
 }
