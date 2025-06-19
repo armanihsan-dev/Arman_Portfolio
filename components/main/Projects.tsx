@@ -57,27 +57,22 @@ const projectThird = [
 const Projects = () => {
   return (
     <div
-      className="flex relative  flex-col items-center justify-center lg:py-24 "
+      className="flex flex-col items-center justify-center lg:py-24 "
       id="projects"
     >
       <h1 className="text-[40px] project-title-text">
         A small selection of recent projects
       </h1>
-      <div className="h-full w-full  flex  relative justify-between   bottom-14 flex-col  overflow-hidden">
-        <div className="border-r w-[50%] relative mt-11 flex ">
-          <figure className="self-start ml-10 ">
-            <ThreeDCardDemo
-              projectName="Flavoroo"
-              description="Browse, customize, and order your favorite pizzas in seconds ."
-              imageSrc="/flavoroo.png"
-              people={projectOne}
-              projectUrl={'https://flavoroo.vercel.app/'}
-            />
-          </figure>
-        </div>
+      <div className="h-full w-full flex relative justify-between  bottom-14 flex-col md:flex-row gap-6 px-8">
+        <ThreeDCardDemo
+          projectName="Flavoroo"
+          description="Browse, customize, and order your favorite pizzas in seconds ."
+          imageSrc="/flavoroo.png"
+          people={projectOne}
+          projectUrl={'https://flavoroo.vercel.app/'}
+        />
 
-        <div className="border-l w-[50%] self-end">
-          {' '}
+        <div className="">
           <ThreeDCardDemo
             projectName="Expense Tracker"
             description="Monitor your income and expenses to stay financially on track."
@@ -86,15 +81,14 @@ const Projects = () => {
             projectUrl={'https://budget-wow.vercel.app/'}
           />
         </div>
-        <div className="border-r w-[50%]">
-          <ThreeDCardDemo
-            projectName="Tourvistoo"
-            description="Explore destinations, book trips, and plan your next adventure with ease"
-            imageSrc="/tourvistoo.png"
-            people={projectThird}
-            projectUrl={'https://tourvistoo.vercel.app/'}
-          />
-        </div>
+
+        <ThreeDCardDemo
+          projectName="Tourvistoo"
+          description="Explore destinations, book trips, and plan your next adventure with ease"
+          imageSrc="/tourvistoo.png"
+          people={projectThird}
+          projectUrl={'https://tourvistoo.vercel.app/'}
+        />
       </div>
     </div>
   );

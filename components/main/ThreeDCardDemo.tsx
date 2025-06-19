@@ -24,12 +24,11 @@ export function ThreeDCardDemo({
   return (
     <CardContainer
       className={cn(
-        'inter-var perspective-[1000px] w-[24rem] font-nunito h-[31rem]'
+        'inter-var group/card-container perspective-[1000px] w-[23rem] font-nunito overflow-hidden'
       )}
     >
-      {/* Changed to unique group name: group/card-container */}
-      <CardBody className="relative group/card-container w-full h-full rounded-2xl p-3 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 border border-slate-700/60">
-        {/* Updated all group-hovers to use group-hover/card-container */}
+      <CardBody className="relative group/card-container bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 w-full h-full rounded-2xl p-8 border border-slate-700/30 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-700">
+        {/* Animated background gradient */}
         <div className="absolute inset-0 rounded-2xl opacity-0 group-hover/card-container:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-purple-500/10 via-blue-500/5 to-emerald-500/10" />
 
         {/* Shimmer effect */}
@@ -68,7 +67,7 @@ export function ThreeDCardDemo({
           translateZ="120"
           className="w-full mt-6 overflow-hidden rounded-xl border border-slate-600/20 shadow-xl shadow-black/30"
         >
-          <div className="relative h-56 w-full overflow-hidden group/image">
+          <div className="relative h-48 w-full overflow-hidden group/image">
             <img
               src={imageSrc}
               className="h-full w-full object-cover transition-all duration-700 group-hover/card-container:scale-110 group-hover/image:brightness-110 filter group-hover/card-container:saturate-110"

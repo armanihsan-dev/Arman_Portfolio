@@ -4,7 +4,6 @@ import { TextField } from '@mui/material';
 import { IoIosSend } from 'react-icons/io';
 import toast from 'react-hot-toast';
 import { useState, memo } from 'react';
-import axios from 'axios';
 
 const sxTextDesign = {
   '& .MuiOutlinedInput-root': {
@@ -26,7 +25,6 @@ interface FormData {
 }
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-
   const [formData, setFormData] = useState<FormData>({
     userName: '',
     userEmail: '',
@@ -91,7 +89,6 @@ const ContactForm = () => {
       setIsLoading(false); // 🔁 Stop loading
     }
   };
-
   return (
     <main id="contact-form" className="relative overflow-hidden mt-0 lg:mt-10">
       <figure className="text-white w-full font-bold px-14 lg:px-28 font-nunito relative lg:not-static top-10 lg:top-0 text-left">
@@ -121,7 +118,7 @@ const ContactForm = () => {
                 variant="outlined"
                 sx={{
                   '& .MuiOutlinedInput-root': {
-                    backgroundColor: '#1e40bf', // dark blue
+                    backgroundColor: '#1e40af', // dark blue
                     color: 'white',
                   },
                   '& .MuiInputLabel-root': {
