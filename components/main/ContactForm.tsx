@@ -4,6 +4,7 @@ import { TextField } from '@mui/material';
 import { IoIosSend } from 'react-icons/io';
 import toast from 'react-hot-toast';
 import { useState, memo } from 'react';
+import axios from 'axios';
 
 const sxTextDesign = {
   '& .MuiOutlinedInput-root': {
@@ -24,6 +25,8 @@ interface FormData {
   userMessage: string;
 }
 const ContactForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [formData, setFormData] = useState<FormData>({
     userName: '',
     userEmail: '',
@@ -52,11 +55,40 @@ const ContactForm = () => {
       return true;
     }
   };
-  const handleToast = (e: React.FormEvent) => {
+  const handleToast = async (e: React.FormEvent) => {
     e.preventDefault();
-    const isValid = validateForm();
-    if (isValid) {
-      console.log(formData);
+
+    const { userName, userEmail, userMessage } = formData;
+
+    if (!userEmail || !userName || !userMessage) {
+      toast.error('Please fill all fields');
+      return;
+    }
+
+    try {
+      setIsLoading(true); // 🚨 Start loading
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/send`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: userName,
+          email: userEmail,
+          message: userMessage,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        toast.success('Your message was sent!');
+        setFormData({ userName: '', userEmail: '', userMessage: '' });
+      } else {
+        toast.error(data.message || 'Something went wrong.');
+      }
+    } catch (error) {
+      toast.error('Failed to send message.');
+      console.error('❌ Fetch error:', error);
+    } finally {
+      setIsLoading(false); // 🔁 Stop loading
     }
   };
 
@@ -89,7 +121,7 @@ const ContactForm = () => {
                 variant="outlined"
                 sx={{
                   '& .MuiOutlinedInput-root': {
-                    backgroundColor: '#1e40af', // dark blue
+                    backgroundColor: '#1e40bf', // dark blue
                     color: 'white',
                   },
                   '& .MuiInputLabel-root': {
@@ -124,12 +156,39 @@ const ContactForm = () => {
 
               <button
                 type="submit"
+                disabled={isLoading}
                 className="relative inline-flex h-12 group active:scale-95 transition overflow-hidden rounded-lg p-[1px] focus:outline-none"
               >
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0ea5e9_0%,#38bdf8_50%,#3b82f6_100%)]"></span>
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950 px-7 text-sm font-medium text-white backdrop-blur-3xl gap-2">
-                  Contact me
-                  <IoIosSend className="text-lg group-hover:text-2xl transition-all" />
+                  {isLoading ? (
+                    <span className="flex items-center gap-2">
+                      <svg
+                        className="animate-spin h-5 w-5 text-white"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v8H4z"
+                        />
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    <>
+                      Contact me{' '}
+                      <IoIosSend className="text-lg group-hover:text-2xl transition-all" />
+                    </>
+                  )}
                 </span>
               </button>
             </form>

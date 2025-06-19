@@ -63,7 +63,7 @@ const Projects = () => {
       <h1 className="text-[40px] project-title-text">
         A small selection of recent projects
       </h1>
-      <div className="h-full w-full flex relative justify-between  bottom-14 flex-col md:flex-row gap-10 px-10">
+      <div className="h-full w-full flex relative justify-between  bottom-14 flex-col md:flex-row gap-6 px-8">
         <ThreeDCardDemo
           projectName="Flavoroo"
           description="Browse, customize, and order your favorite pizzas in seconds ."
