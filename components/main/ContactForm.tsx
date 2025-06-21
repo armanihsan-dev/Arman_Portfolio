@@ -133,9 +133,9 @@ const ContactForm = () => {
   return (
     <main id="contact-form" className="relative overflow-hidden mt-0 lg:mt-10">
       <figure className="text-white w-full font-bold px-14 lg:px-28 font-nunito relative lg:not-static top-10 lg:top-0 text-left">
-        <h1 className="text-lg lg:text-3xl ">Have an Idea? Let’s Talk</h1>
+        <h1 className="text-lg lg:text-3xl ">Have an Idea? Let&rsquo;s Talk</h1>
         <p className="text-sm lg:text-lg">
-          Your message can travel the world — I’m just one click away..
+          Your message can travel the world — I&rsquo;m just one click away..
         </p>
       </figure>
       <main className="flex  flex-col lg:flex-row justify-between w-full">

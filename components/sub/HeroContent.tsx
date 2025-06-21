@@ -60,7 +60,7 @@ const HeroContent = () => {
               className="relative z-10 rounded-full bg-black animate-spin-slow shimmer-border "
               shimmerColor="#e5e5e5"
             >
-              Let's Connect
+              Let&rsquo;s Connect
             </ShimmerButton>
           </div>
         </a>

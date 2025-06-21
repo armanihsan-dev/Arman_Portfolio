@@ -25,9 +25,9 @@ const Footer = () => {
         <h1 className="colorful-text">
           Ready to take your digital presence to the next level ?
         </h1>
-        <p className="text-[12px] lg:text-lg ">
-          Reach out me today and let's discuss how i can help you achieve you
-          goals.
+        <p className="text-[12px] lg:text-lg">
+          Reach out to me today, and let&rsquo;s discuss how I can help you
+          achieve your goals.
         </p>
       </div>
       <div className=" flex flex-col lg:flex-row w-full items-center   justify-between gap-6 px-[4rem]">
