@@ -95,9 +95,9 @@ export function ThreeDCardDemo({
               </div>
 
               <div className="flex items-center justify-center gap-2">
-                <span className="text-sm font-nunito text-white">
+                <span className="text-[10px] font-nunito text-white">
                   Check Live Site
-                </span>
+                </span> 
                 <a href={projectUrl}>
                   <FaLocationArrow className="text-emerald-300 group-hover/card-container:text-2xl group-hover/card-container:text-green-400 transition-all" />
                 </a>

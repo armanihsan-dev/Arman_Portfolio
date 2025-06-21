@@ -5,6 +5,8 @@ import { IoIosSend } from 'react-icons/io';
 import toast from 'react-hot-toast';
 import { useState, memo } from 'react';
 
+import emailjs from '@emailjs/browser';
+
 const sxTextDesign = {
   '& .MuiOutlinedInput-root': {
     backgroundColor: '#1e40af', // dark blue
@@ -90,6 +92,44 @@ const ContactForm = () => {
       setIsLoading(false); // 🔁 Stop loading
     }
   };
+
+  const handleSendEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const { userName, userEmail, userMessage } = formData;
+
+    if (!userEmail || !userName || !userMessage) {
+      toast.error('Please fill all fields');
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+
+      const templateParams = {
+        from_name: userName,
+        reply_to: userEmail,
+        message: userMessage,
+      };
+
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID as string,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY as string
+      );
+
+      console.log('✅ Email sent:', result.text);
+      toast.success('Your message was sent!');
+      setFormData({ userName: '', userEmail: '', userMessage: '' });
+    } catch (error) {
+      console.error('❌ EmailJS Error:', error);
+      toast.error('Failed to send email.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <main id="contact-form" className="relative overflow-hidden mt-0 lg:mt-10">
       <figure className="text-white w-full font-bold px-14 lg:px-28 font-nunito relative lg:not-static top-10 lg:top-0 text-left">
@@ -108,7 +148,7 @@ const ContactForm = () => {
           <div>
             <form
               className="flex flex-col py-[3.5rem] px-14 gap-3"
-              onSubmit={handleToast}
+              onSubmit={handleSendEmail}
             >
               <TextField
                 name="userName"
