@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Marquee } from '../magicui/marquee';
-import { Heart, Star, ThumbsUp } from 'lucide-react';
+import { Heart, Star, StarIcon, ThumbsUp } from 'lucide-react';
 const reviewsGroup1 = [
   {
     name: 'Ali Raza',
@@ -101,105 +101,57 @@ const ReviewCard = ({
   likes = 24,
 }: ReviewCardProps) => {
   return (
-    <div className="w-96 h-64 relative group perspective-1000">
-      {/* Outer glow effect (now properly scoped to this card only) */}
-      <div className="absolute inset-0 z-0 rounded-3xl blur-xl opacity-0  transition-opacity duration-700 pointer-events-none" />
+    <figure className="relative h-56   w-96 group cursor-pointer">
+      {/* Glowing border that affects all cards in row on hover */}
+      <div className="absolute inset-0 " />
 
-      {/* Main card container */}
+      {/* Main card */}
       <div
         className={cn(
-          'relative z-10 h-full w-full rounded-3xl p-6 flex flex-col',
-          'bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90',
-          'backdrop-blur-xl border border-white/10',
-          'shadow-2xl shadow-black/20',
-          'transition-all duration-500 ease-out',
-          'hover:transform hover:scale-100 hover:-translate-y-2',
-          'overflow-hidden cursor-pointer'
+          'relative h-full w-full rounded-2xl p-6 flex flex-col gap-4',
+          'bg-gray-900 border border-gray-700 ',
+          'transition-all duration-300 hover:shadow-sm hover:shadow-gray-500',
+          'overflow-hidden'
         )}
       >
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-        {/* Floating orbs */}
-        <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-pulse" />
-        <div className="absolute bottom-6 left-6 w-12 h-12 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-lg animate-pulse delay-300" />
-
-        {/* Header section */}
-        <div className="relative flex items-start justify-between mb-4">
-          <div className="flex items-center gap-4">
-            {/* Avatar with gradient border */}
-            <div className="relative group/avatar">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full p-[2px] group-hover:from-pink-500 group-hover:to-violet-500 transition-all duration-500">
-                <img
-                  className="rounded-full w-12 h-12 object-cover transition-transform duration-300 group-hover/avatar:scale-110"
-                  src={img}
-                  alt={name}
-                />
-              </div>
-
-              {/* Status indicator */}
-              {verified && (
-                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full border-2 border-slate-900 flex items-center justify-center animate-pulse">
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                </div>
-              )}
-            </div>
-
-            {/* User info */}
-            <div className="flex flex-col items-start">
-              <h3 className="text-white font-bold text-lg tracking-tight   hover:bg-clip-text transition-all duration-300">
-                {name}
-              </h3>
-              <p className="text-slate-400 text-sm font-medium hover:text-slate-300 transition-colors">
-                {username}
-              </p>
-            </div>
-          </div>
-
-          {/* Like stats */}
-          <div className="flex items-center gap-2 opacity-100 transition-all duration-500 transform translate-x-4 hover:translate-x-0">
-            <button className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
-              <Heart className="w-3 h-3 text-red-400" />
-              <span className="text-xs text-slate-400">
-                {Math.floor(Math.random() * 25) + 10}
-              </span>
-            </button>
-          </div>
-        </div>
-
-        {/* Star rating */}
-        <div className="flex items-center gap-1 mb-4">
-          {[...Array(5)].map((_, i) => (
-            <Star
-              key={i}
-              className={cn(
-                'w-4 h-4 transition-all duration-300',
-                i < rating
-                  ? 'text-yellow-400 fill-yellow-400 group-hover:scale-110'
-                  : 'text-slate-600 group-hover:text-slate-500',
-                'hover:rotate-12'
-              )}
-              style={{
-                transitionDelay: `${i * 50}ms`,
-                animationDelay: `${i * 100}ms`,
-              }}
+        {/* Profile section */}
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <img
+              className="rounded-full w-10 h-10 object-cover border-2 border-blue-400 group-hover:border-cyan-300 transition-all"
+              src={img}
+              alt={name}
             />
-          ))}
-          <span className="ml-2 text-sm text-slate-400 font-medium">
-            {rating}.0
-          </span>
+            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-900" />
+          </div>
+
+          <div>
+            <h3 className="text-white font-manrope hover:text-cyan-200 transition-colors">
+              {name}
+            </h3>
+            <p className="text-xs text-gray-400 hover:text-blue-300 transition-colors">
+              @{username}
+            </p>
+          </div>
+
+          <div className="ml-auto flex space-x-1">
+            {[...Array(5)].map((_, i) => (
+              <StarIcon
+                key={i}
+                className="w-4 h-4 text-yellow-400 fill-current"
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Review body */}
-        <blockquote className="flex-1 relative bottom-4">
-          <p className="text-slate-300 leading-relaxed text-justify text-sm pt-4 relative z-10 group-hover:text-white transition-colors duration-300">
+        {/* Review text */}
+        <blockquote className="flex-1">
+          <p className="text-gray-300 hover:text-white font-manrope text-justify text-sm tracking-wider">
             {body}
           </p>
         </blockquote>
-        {/* Shimmer effect */}
-        <div className="absolute inset-0 -top-4 -bottom-4 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transform -skew-x-12 transition-opacity duration-700" />
       </div>
-    </div>
+    </figure>
   );
 };
 
