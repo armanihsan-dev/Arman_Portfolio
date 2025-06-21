@@ -19,13 +19,13 @@ const Footer = () => {
   return (
     <div
       id="footer"
-      className="text-sm relative  lg:bottom-8 font-['Nunito'] flex flex-col text-white/80 items-center justify-center gap-5 py-6"
+      className="text-sm relative  lg:bottom-8 font-['Poppins'] font-thin flex flex-col text-white/80 items-center justify-center gap-5 py-6"
     >
       <div className="top-text text-center ">
-        <h1 className="colorful-text">
+        <h1 className="colorful-text font-thin">
           Ready to take your digital presence to the next level ?
         </h1>
-        <p className="text-[12px] lg:text-lg">
+        <p className="text-[12px] lg:text-lg font-thin">
           Reach out to me today, and let&rsquo;s discuss how I can help you
           achieve your goals.
         </p>

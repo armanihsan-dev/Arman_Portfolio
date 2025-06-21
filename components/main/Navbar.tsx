@@ -2,7 +2,7 @@ import { Socials } from '@/constants';
 import Image from 'next/image';
 import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa6';
-import '../../app/font.css';
+
 const Navbar = () => {
   return (
     <div className="w-full h-[65px]  flex flex-wrap items-center justify-between px-4 md:px-10 lg:px-20 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md fixed top-0 z-50">
@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className=" md:flex items-center justify-center ml-0 md:ml-10">
         <div
           id="navLinks"
-          className="flex gap-5  text-[10px] font-['Manrope'] lg:text-lg bg-[#0300145e] border border-[#7042f861] px-4 py-2 rounded-full text-gray-200"
+          className="flex gap-5  text-[10px] font-['Poppins'] lg:text-[16px] bg-[#0300145e] border border-[#7042f861] px-4 py-2 rounded-full text-gray-200"
         >
           <a href="#about-me" className="cursor-pointer">
             About
