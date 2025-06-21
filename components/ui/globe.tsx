@@ -159,23 +159,41 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .atmosphereAltitude(defaultProps.atmosphereAltitude)
       .hexPolygonColor(() => defaultProps.polygonColor);
 
+    interface ArcData {
+      order: number;
+      startLat: number;
+      startLng: number;
+      endLat: number;
+      endLng: number;
+      arcAlt: number;
+      color: string;
+    }
+
     globeRef.current
-      .arcsData(data)
-      .arcStartLat((d) => (d as { startLat: number }).startLat * 1)
-      .arcStartLng((d) => (d as { startLng: number }).startLng * 1)
-      .arcEndLat((d) => (d as { endLat: number }).endLat * 1)
-      .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
-      .arcColor((e: any) => (e as { color: string }).color)
-      .arcAltitude((e) => (e as { arcAlt: number }).arcAlt * 1)
+      .arcsData(data as ArcData[])
+      .arcStartLat((d: ArcData) => d.startLat * 1)
+      .arcStartLng((d: ArcData) => d.startLng * 1)
+      .arcEndLat((d: ArcData) => d.endLat * 1)
+      .arcEndLng((d: ArcData) => d.endLng * 1)
+      .arcColor((e: ArcData) => e.color)
+      .arcAltitude((e: ArcData) => e.arcAlt * 1)
       .arcStroke(() => [0.32, 0.28, 0.3][Math.round(Math.random() * 2)])
       .arcDashLength(defaultProps.arcLength)
-      .arcDashInitialGap((e) => (e as { order: number }).order * 1)
+      .arcDashInitialGap((e: ArcData) => e.order * 1)
       .arcDashGap(15)
       .arcDashAnimateTime(() => defaultProps.arcTime);
 
+    interface PointData {
+      size: number;
+      order: number;
+      color: string;
+      lat: number;
+      lng: number;
+    }
+
     globeRef.current
-      .pointsData(filteredPoints)
-      .pointColor((e) => (e as { color: string }).color)
+      .pointsData(filteredPoints as PointData[])
+      .pointColor((e: PointData) => e.color)
       .pointsMerge(true)
       .pointAltitude(0.0)
       .pointRadius(2);
