@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
 import { Marquee } from '../magicui/marquee';
-import { FaThumbsUp, FaXTwitter } from 'react-icons/fa6';
 import { Heart, Star, ThumbsUp } from 'lucide-react';
 const reviewsGroup1 = [
   {
