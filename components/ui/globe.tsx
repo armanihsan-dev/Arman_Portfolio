@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from 'three';
+import { Color, Scene, Fog, PerspectiveCamera, Vector3, Group } from 'three';
 import ThreeGlobe from 'three-globe';
 import { useThree, Canvas, extend } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
@@ -8,7 +8,7 @@ import countries from '@/data/globe.json';
 declare module '@react-three/fiber' {
   interface ThreeElements {
     threeGlobe: ThreeElements['mesh'] & {
-      new (): ThreeGlobe;
+      // new (): ThreeGlobe; // Removed invalid type usage
     };
   }
 }
@@ -63,8 +63,8 @@ interface WorldProps {
 let numbersOfRings = [0];
 
 export function Globe({ globeConfig, data }: WorldProps) {
-  const globeRef = useRef<ThreeGlobe | null>(null);
-  const groupRef = useRef();
+  const globeRef = useRef<InstanceType<typeof ThreeGlobe> | null>(null);
+  const groupRef = useRef<Group | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
   const defaultProps = {
