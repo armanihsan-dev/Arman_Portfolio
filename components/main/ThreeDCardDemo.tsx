@@ -24,10 +24,10 @@ export function ThreeDCardDemo({
   return (
     <CardContainer
       className={cn(
-        'inter-var group/card-container perspective-[1000px] w-[23rem] font-nunito overflow-hidden'
+        'inter-var group perspective-[1000px] w-[23rem] font-nunito cursor-pointer overflow-hidden'
       )}
     >
-      <CardBody className="relative group/card-container bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 w-full h-full rounded-2xl p-8 border border-slate-700/30 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-700">
+      <CardBody className="relative group/card-container  bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 w-full h-full rounded-2xl p-8 border border-slate-700/30 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-700">
         {/* Animated background gradient */}
         <div className="absolute inset-0 rounded-2xl opacity-0 group-hover/card-container:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-purple-500/10 via-blue-500/5 to-emerald-500/10" />
 
@@ -57,7 +57,7 @@ export function ThreeDCardDemo({
         <CardItem
           as="p"
           translateZ="70"
-          className="text-base text-slate-300/90 max-w-sm mt-4 leading-relaxed tracking-wide"
+          className="text-base text-slate-300/90 max-w-sm mt-4 leading-relaxed tracking-  wide group-hover:text-white "
         >
           {description}
         </CardItem>
@@ -88,7 +88,7 @@ export function ThreeDCardDemo({
 
         {/* Footer */}
         <div className="flex justify-between items-center mt-8">
-          <CardItem translateZ={50} as="div" className="w-full">
+          <CardItem translateZ={50} as="div" className="w-full ">
             <div className="flex items-center justify-between">
               <div className="w-fit h-fit flex items-center justify-between relative">
                 <AnimatedTooltipPreview people={people} />

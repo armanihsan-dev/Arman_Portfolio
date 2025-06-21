@@ -53,6 +53,7 @@ const ContactForm = () => {
       return true;
     }
   };
+
   const handleToast = async (e: React.FormEvent) => {
     e.preventDefault();
 
