@@ -1,7 +1,13 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  safelist: ['animate-marquee', 'animate-marquee-vertical'],
+  safelist: [
+    'animate-marquee',
+    'animate-marquee-vertical',
+    'flex-row',
+    'flex-col',
+  ],
+
   darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
