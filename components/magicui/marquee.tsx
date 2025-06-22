@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
 import { ComponentPropsWithoutRef } from 'react';
-import '../../app/reviewCard.css';
 interface MarqueeProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Optional CSS class name to apply custom styles
