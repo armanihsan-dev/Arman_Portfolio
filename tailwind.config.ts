@@ -1,19 +1,18 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  safelist: [
-    'animate-marquee',
-    'animate-marquee-vertical',
-    'flex-row',
-    'flex-col',
-  ],
-
   darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './lib/**/*.{js,ts,jsx,tsx}',
+  ],
+  safelist: [
+    'animate-marquee',
+    'animate-marquee-vertical',
+    'flex-row',
+    'flex-col',
   ],
   theme: {
     extend: {
@@ -26,22 +25,12 @@ const config: Config = {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
-        marquee: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-100%)' },
-        },
-        'marquee-vertical': {
-          '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(-100%)' },
-        },
+        // Removed marquee keyframes here to avoid conflicts
       },
       animation: {
         'shimmer-slide': 'shimmerSlide 3s linear infinite',
         'spin-around': 'spinAround 3s linear infinite',
-        marquee: 'marquee var(--duration, 40s) linear infinite ',
-        'marquee-vertical':
-          'marquee-vertical var(--duration, 40s) linear infinite',
-        'spin-slow': 'spin 3s linear infinite',
+        // Removed marquee animation here as well
       },
       fontFamily: {
         manrope: ['Manrope', 'sans-serif'],
@@ -106,4 +95,5 @@ const config: Config = {
   },
   plugins: [require('tailwindcss-animate')],
 };
+
 export default config;

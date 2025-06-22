@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { ComponentPropsWithoutRef } from 'react';
-
+import '../../app/reviewCard.css';
 interface MarqueeProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Optional CSS class name to apply custom styles
@@ -59,7 +59,7 @@ export function Marquee({
           <div
             key={i}
             className={cn(
-              'flex shrink-0 justify-around [gap:var(--gap)]  animate-marquee',
+              'flex shrink-0 justify-around [gap:var(--gap)]',
               vertical
                 ? 'animate-marquee-vertical flex-col'
                 : 'animate-marquee flex-row',
