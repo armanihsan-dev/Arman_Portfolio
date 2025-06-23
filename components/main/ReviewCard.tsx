@@ -1,3 +1,5 @@
+'use client'
+
 import { cn } from '@/lib/utils';
 import { Marquee } from '../magicui/marquee';
 import { Heart, Star } from 'lucide-react';
@@ -205,7 +207,7 @@ export function MarqueeDemo() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden gap-8 py-8">
       {/* First row with shared hover effect */}
-      <div className="w-full hover:[&_figure]:[--glow-opacity:0.3] transition-all duration-500">
+      <div className="w-full hover:[&_figure]:[--glow-opacity:0.3]   transition-all duration-500">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
@@ -214,7 +216,7 @@ export function MarqueeDemo() {
       </div>
 
       {/* Second row with shared hover effect */}
-      <div className="w-full hover:[&_figure]:[--glow-opacity:0.3] transition-all duration-500">
+      <div className="w-full hover:[&_figure]:[--glow-opacity:0.3]   transition-all duration-500">
         <Marquee reverse pauseOnHover className="[--duration:20s]">
           {secondRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
